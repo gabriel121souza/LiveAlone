@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	 xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Pagina Inicial</title>
+</head>
+<body>
+<div align="center">
+	<h1>Listagem de Produtos</h1>
+	<table border="1" cellpadding="10">
+		<thead>
+		<tr>
+			<th>Id Produto</th>
+			<th>Nome Produto</th>
+			<th>Nome Marca</th>
+			<th>Preco</th>
+			<th>Categoria</th>
+			<th>Ja Possui</th>
+		</tr>
+		</thead>
+		<tbody>
+			<tr th:each="produto : ${listaProdutos}">
+				<th th:text="${produto.id}">Id Produto</th>
+				<th th:text="${produto.nome}">Nome Produto</th>
+				<th th:text="${produto.marca}">Nome Marca</th>
+				<th th:text="${produto.preco}">Preco</th>
+				<th th:text="${produto.categoria}">Categoria</th>
+				<th th:text="${produto.japossui}">Ja Possui</th>
+			
+			</tr>
+			
+		</tbody>
+	
+	</table>
+	</div>
+</body>
+</html>
