@@ -2,13 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	 xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <title>Pagina Inicial</title>
 </head>
 <body>
 <div align="center">
 	<h1>Listagem de Produtos</h1>
 	<a href="new">Criar um Novo Produto</a>
+	<br>
+	<br>
 	<table border="1" cellpadding="10">
 	
 		<thead>
@@ -19,17 +21,18 @@
 			<th>Preco</th>
 			<th>Categoria</th>
 			<th>Ja Possui</th>
+			<th>Ação</th>
 		</tr>
 		</thead>
-		<tbody>
+		<tbody align="center">
 			<tr th:each="produto : ${listaProdutos}">
-				<th th:text="${produto.id}">Id Produto</th>
-				<th th:text="${produto.nome}">Nome Produto</th>
-				<th th:text="${produto.marca}">Nome Marca</th>
-				<th th:text="${produto.preco}">Preco</th>
-				<th th:text="${produto.categoria}">Categoria</th>
-				<th th:text="${produto.japossui}">Ja Possui</th>
-			
+				<td th:text="${produto.id}">Id Produto</td>
+				<td th:text="${produto.nome}">Nome Produto</td>
+				<td th:text="${produto.marca}">Nome Marca</td>
+				<td th:text="${produto.preco}">Preco</td>
+				<td th:text="${produto.categoria}">Categoria</td>
+				<td th:text="${produto.japossui}">Ja Possui</td>
+				<td><a th:href="@{'/editar/' + ${produto.id}}">Editar</a></td>
 			</tr>
 			
 		</tbody>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Editar Produto</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Editar Produtos</h1>
+		<br>
+		<form action="#" th:action="@{/save}" th:object="${produto}"
+			method="post">
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>ID do Produto</td>
+					<td><input type="text" th:field="*{id}" readonly="readonly" /></td>
+				</tr>
+				<tr>
+					<td>Nome do Produto</td>
+					<td><input type="text" th:field="*{nome}" /></td>
+				</tr>
+				<tr>
+					<td>Marca do Produto</td>
+					<td><input type="text" th:field="*{marca}" /></td>
+				</tr>
+				<tr>
+					<td>Preço do Produto</td>
+					<td><input type="text" th:field="*{preco}" /></td>
+				</tr>
+			</table>
+			<span><b>Escolha a Categoria: </b></span> <select id="categoria"
+				th:field="*{categoria}">
+				<option value="1">Sala</option>
+				<option value="2">Quarto</option>
+				<option value="3">Cozinha</option>
+				<option value="4">Banheiro</option>
+				<option value="5">Outros</option>
+			</select> &nbsp;&nbsp;&nbsp;&nbsp; <span><b>Voce Possui: </b></span> <select
+				id="categoria" th:field="*{categoria}">
+				<option value="1">Sim</option>
+				<option value="0">Não</option>
+			</select> <br /> <br /> <br />
+			<tr>
+				<td colspan="1"><button type="submit">Salvar</button></td>&nbsp;&nbsp;
+				<td><button>
+						<a href="/" style="text-decoration: none; color: black">Voltar</a>
+					</button></td>
+			</tr>
+		</form>
+
+	</div>
+</body>
+</html>

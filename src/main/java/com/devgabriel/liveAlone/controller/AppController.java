@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.devgabriel.liveAlone.model.Produto;
 import com.devgabriel.liveAlone.service.ProdutoService;
@@ -38,6 +40,14 @@ public class AppController {
 		service.save(produto);
 		return "redirect:/";
 		}
-		
+	
+		@RequestMapping(value="/editar/{id}")
+		public ModelAndView editarProduto(@PathVariable(name="id") Integer id) {
+			ModelAndView mav = new ModelAndView("editar_produto");
+			Produto produto = service.get(id);
+			mav.addObject("produto", produto);
+			return mav;
+			
+		}
 	}
 
